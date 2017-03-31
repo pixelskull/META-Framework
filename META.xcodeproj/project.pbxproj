@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		504AEE621E8E7ED900D644EB /* MetaComputeUnitDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504AEE611E8E7ED900D644EB /* MetaComputeUnitDelegate.swift */; };
+		504AEE641E8E7F0100D644EB /* MetaComputeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504AEE631E8E7F0100D644EB /* MetaComputeDataSource.swift */; };
 		504E608A1E8D3B8000C4E3EF /* META.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 504E60801E8D3B8000C4E3EF /* META.framework */; };
 		504E608F1E8D3B8000C4E3EF /* METATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504E608E1E8D3B8000C4E3EF /* METATests.swift */; };
 		504E60911E8D3B8000C4E3EF /* META.h in Headers */ = {isa = PBXBuildFile; fileRef = 504E60831E8D3B8000C4E3EF /* META.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		504E609B1E8D3BA400C4E3EF /* MetaComputeUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504E609A1E8D3BA400C4E3EF /* MetaComputeUnit.swift */; };
+		504E609C1E8D414B00C4E3EF /* MetaComputeUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504E609A1E8D3BA400C4E3EF /* MetaComputeUnit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +27,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		504AEE611E8E7ED900D644EB /* MetaComputeUnitDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaComputeUnitDelegate.swift; sourceTree = "<group>"; };
+		504AEE631E8E7F0100D644EB /* MetaComputeDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaComputeDataSource.swift; sourceTree = "<group>"; };
 		504E60801E8D3B8000C4E3EF /* META.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = META.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		504E60831E8D3B8000C4E3EF /* META.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = META.h; sourceTree = "<group>"; };
 		504E60841E8D3B8000C4E3EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		504E60891E8D3B8000C4E3EF /* METATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = METATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		504E608E1E8D3B8000C4E3EF /* METATests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = METATests.swift; sourceTree = "<group>"; };
 		504E60901E8D3B8000C4E3EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		504E609A1E8D3BA400C4E3EF /* MetaComputeUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaComputeUnit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +80,9 @@
 			children = (
 				504E60831E8D3B8000C4E3EF /* META.h */,
 				504E60841E8D3B8000C4E3EF /* Info.plist */,
+				504E609A1E8D3BA400C4E3EF /* MetaComputeUnit.swift */,
+				504AEE611E8E7ED900D644EB /* MetaComputeUnitDelegate.swift */,
+				504AEE631E8E7F0100D644EB /* MetaComputeDataSource.swift */,
 			);
 			path = META;
 			sourceTree = "<group>";
@@ -149,6 +159,7 @@
 					504E607F1E8D3B8000C4E3EF = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = SYMB48J5LX;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					504E60881E8D3B8000C4E3EF = {
@@ -198,6 +209,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				504E609B1E8D3BA400C4E3EF /* MetaComputeUnit.swift in Sources */,
+				504AEE641E8E7F0100D644EB /* MetaComputeDataSource.swift in Sources */,
+				504AEE621E8E7ED900D644EB /* MetaComputeUnitDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				504E608F1E8D3B8000C4E3EF /* METATests.swift in Sources */,
+				504E609C1E8D414B00C4E3EF /* MetaComputeUnit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +339,7 @@
 		504E60951E8D3B8000C4E3EF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SYMB48J5LX;
@@ -336,6 +352,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = de.pixelskull.META;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -343,6 +360,7 @@
 		504E60961E8D3B8000C4E3EF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SYMB48J5LX;
@@ -362,6 +380,7 @@
 		504E60981E8D3B8000C4E3EF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = SYMB48J5LX;
 				INFOPLIST_FILE = METATests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -374,6 +393,7 @@
 		504E60991E8D3B8000C4E3EF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = SYMB48J5LX;
 				INFOPLIST_FILE = METATests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -402,6 +422,7 @@
 				504E60961E8D3B8000C4E3EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		504E60971E8D3B8000C4E3EF /* Build configuration list for PBXNativeTarget "METATests" */ = {
 			isa = XCConfigurationList;
@@ -410,6 +431,7 @@
 				504E60991E8D3B8000C4E3EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
