@@ -8,27 +8,51 @@
 
 import Foundation
 
-protocol MetaComputeUnit {
+protocol MetaComputeUnitable {
     
-    var delegate: MetaComputeUnitDelegate { get set }
+    var delegate: MetaComputeUnitDelegate? { get set }
     var dataSource: MetaComputeDataSource { get set }
     
-    init(delegate: MetaComputeUnitDelegate, dataSource: MetaComputeDataSource)
+    
+    init(delegate: MetaComputeUnitDelegate?, dataSource: MetaComputeDataSource)
     
     func compute()
-    
     func compute(action: (Any) -> Any)
+    func computeAll(action: (Any) -> Any)
+    
 }
 
-extension MetaComputeUnit {
+
+struct MetaComputeUnit: MetaComputeUnitable {
+    
+    var delegate: MetaComputeUnitDelegate?
+    var dataSource: MetaComputeDataSource
+    
+    
+    init(delegate: MetaComputeUnitDelegate?, dataSource:MetaComputeDataSource) {
+        self.dataSource = dataSource
+        self.delegate   = delegate
+    }
+    
+    func updateDelegate(WithResult result: Any) {
+        guard let delegate = delegate else { return }
+        delegate.computeUnitUpdatedResults()
+        delegate.computeUnitCompletedResult(result)
+    }
     
     func compute() {
         if let result = dataSource.getNextElement() {
             dataSource.storeNextResult(result)
-            
-            // sending update to delegate
-            delegate.computeUnitUpdatedResults()
-            delegate.computeUnitCompletedResult(result)
+            updateDelegate(WithResult: result)
+        }
+    }
+    
+    func computeAll() {
+        guard !dataSource.data.isEmpty else { return }
+        dataSource.data.forEach{ element in
+            let result = element
+            dataSource.storeNextResult(result)
+            updateDelegate(WithResult: result)
         }
     }
     
@@ -36,23 +60,49 @@ extension MetaComputeUnit {
         if let element = dataSource.getNextElement() {
             let result = action(element)
             dataSource.storeNextResult(result)
-            
-            // sending update to delegate
-            delegate.computeUnitUpdatedResults()
-            delegate.computeUnitCompletedResult(result)
+            updateDelegate(WithResult: result)
+        }
+    }
+    
+    func computeAll(action: (Any) -> Any) {
+        guard !dataSource.data.isEmpty else { return }
+        dataSource.data.forEach{ element in
+            let result = action(element)
+            dataSource.storeNextResult(result)
+            updateDelegate(WithResult: result)
         }
     }
     
 }
 
-class ComputeUnit:MetaComputeUnit {
-    
-    var dataSource: MetaComputeDataSource
-    var delegate: MetaComputeUnitDelegate
-    
-    required init(delegate: MetaComputeUnitDelegate, dataSource: MetaComputeDataSource) {
-        self.delegate   = delegate
-        self.dataSource = dataSource
-    }
-    
-}
+//extension MetaComputeUnit {
+//    
+//    init(delegate: MetaComputeUnitDelegate, dataSource:MetaComputeDataSource) {
+//        self.init()
+//        self.dataSource = dataSource
+//        self.delegate   = delegate
+//    }
+//    
+//    func compute() {
+//        if let result = dataSource.getNextElement() {
+//            dataSource.storeNextResult(result)
+//            
+//            // sending update to delegate
+//            delegate.computeUnitUpdatedResults()
+//            delegate.computeUnitCompletedResult(result)
+//        }
+//    }
+//    
+//    func compute(action: (Any) -> Any) {
+//        if let element = dataSource.getNextElement() {
+//            let result = action(element)
+//            dataSource.storeNextResult(result)
+//            
+//            // sending update to delegate
+//            delegate.computeUnitUpdatedResults()
+//            delegate.computeUnitCompletedResult(result)
+//        }
+//    }
+//    
+//}
+

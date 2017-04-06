@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5039DFE81E8E9C4800DE21E9 /* MetaComputeUnitScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5039DFE71E8E9C4800DE21E9 /* MetaComputeUnitScheduler.swift */; };
 		504AEE621E8E7ED900D644EB /* MetaComputeUnitDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504AEE611E8E7ED900D644EB /* MetaComputeUnitDelegate.swift */; };
 		504AEE641E8E7F0100D644EB /* MetaComputeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504AEE631E8E7F0100D644EB /* MetaComputeDataSource.swift */; };
 		504E608A1E8D3B8000C4E3EF /* META.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 504E60801E8D3B8000C4E3EF /* META.framework */; };
-		504E608F1E8D3B8000C4E3EF /* METATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504E608E1E8D3B8000C4E3EF /* METATests.swift */; };
 		504E60911E8D3B8000C4E3EF /* META.h in Headers */ = {isa = PBXBuildFile; fileRef = 504E60831E8D3B8000C4E3EF /* META.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		504E609B1E8D3BA400C4E3EF /* MetaComputeUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504E609A1E8D3BA400C4E3EF /* MetaComputeUnit.swift */; };
-		504E609C1E8D414B00C4E3EF /* MetaComputeUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504E609A1E8D3BA400C4E3EF /* MetaComputeUnit.swift */; };
+		5057AC571E93BA2B003B8FAB /* MetaComputeUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5057AC561E93BA2B003B8FAB /* MetaComputeUnitTest.swift */; };
+		506054A41E968E91009DDF1E /* MetaComputeUnitDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506054A31E968E91009DDF1E /* MetaComputeUnitDataSourceTest.swift */; };
+		506054A71E96C5FE009DDF1E /* BatteryInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506054A61E96C5FE009DDF1E /* BatteryInfoService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,15 +29,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5039DFE71E8E9C4800DE21E9 /* MetaComputeUnitScheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaComputeUnitScheduler.swift; sourceTree = "<group>"; };
 		504AEE611E8E7ED900D644EB /* MetaComputeUnitDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaComputeUnitDelegate.swift; sourceTree = "<group>"; };
 		504AEE631E8E7F0100D644EB /* MetaComputeDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaComputeDataSource.swift; sourceTree = "<group>"; };
 		504E60801E8D3B8000C4E3EF /* META.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = META.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		504E60831E8D3B8000C4E3EF /* META.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = META.h; sourceTree = "<group>"; };
 		504E60841E8D3B8000C4E3EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		504E60891E8D3B8000C4E3EF /* METATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = METATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		504E608E1E8D3B8000C4E3EF /* METATests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = METATests.swift; sourceTree = "<group>"; };
 		504E60901E8D3B8000C4E3EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		504E609A1E8D3BA400C4E3EF /* MetaComputeUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaComputeUnit.swift; sourceTree = "<group>"; };
+		5057AC561E93BA2B003B8FAB /* MetaComputeUnitTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaComputeUnitTest.swift; sourceTree = "<group>"; };
+		506054A31E968E91009DDF1E /* MetaComputeUnitDataSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaComputeUnitDataSourceTest.swift; sourceTree = "<group>"; };
+		506054A61E96C5FE009DDF1E /* BatteryInfoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryInfoService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,11 +83,13 @@
 		504E60821E8D3B8000C4E3EF /* META */ = {
 			isa = PBXGroup;
 			children = (
+				506054A51E96C5A5009DDF1E /* SystemServices */,
 				504E60831E8D3B8000C4E3EF /* META.h */,
 				504E60841E8D3B8000C4E3EF /* Info.plist */,
 				504E609A1E8D3BA400C4E3EF /* MetaComputeUnit.swift */,
 				504AEE611E8E7ED900D644EB /* MetaComputeUnitDelegate.swift */,
 				504AEE631E8E7F0100D644EB /* MetaComputeDataSource.swift */,
+				5039DFE71E8E9C4800DE21E9 /* MetaComputeUnitScheduler.swift */,
 			);
 			path = META;
 			sourceTree = "<group>";
@@ -90,10 +97,19 @@
 		504E608D1E8D3B8000C4E3EF /* METATests */ = {
 			isa = PBXGroup;
 			children = (
-				504E608E1E8D3B8000C4E3EF /* METATests.swift */,
 				504E60901E8D3B8000C4E3EF /* Info.plist */,
+				5057AC561E93BA2B003B8FAB /* MetaComputeUnitTest.swift */,
+				506054A31E968E91009DDF1E /* MetaComputeUnitDataSourceTest.swift */,
 			);
 			path = METATests;
+			sourceTree = "<group>";
+		};
+		506054A51E96C5A5009DDF1E /* SystemServices */ = {
+			isa = PBXGroup;
+			children = (
+				506054A61E96C5FE009DDF1E /* BatteryInfoService.swift */,
+			);
+			name = SystemServices;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,8 +225,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5039DFE81E8E9C4800DE21E9 /* MetaComputeUnitScheduler.swift in Sources */,
 				504E609B1E8D3BA400C4E3EF /* MetaComputeUnit.swift in Sources */,
 				504AEE641E8E7F0100D644EB /* MetaComputeDataSource.swift in Sources */,
+				506054A71E96C5FE009DDF1E /* BatteryInfoService.swift in Sources */,
 				504AEE621E8E7ED900D644EB /* MetaComputeUnitDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,8 +237,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				504E608F1E8D3B8000C4E3EF /* METATests.swift in Sources */,
-				504E609C1E8D414B00C4E3EF /* MetaComputeUnit.swift in Sources */,
+				5057AC571E93BA2B003B8FAB /* MetaComputeUnitTest.swift in Sources */,
+				506054A41E968E91009DDF1E /* MetaComputeUnitDataSourceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
