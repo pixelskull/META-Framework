@@ -23,7 +23,7 @@ protocol MetaComputeUnitable {
 }
 
 
-struct MetaComputeUnit: MetaComputeUnitable {
+struct MetaComputeUnit: MetaComputeUnitable, Equatable {
     
     var delegate: MetaComputeUnitDelegate?
     var dataSource: MetaComputeDataSource
@@ -71,6 +71,10 @@ struct MetaComputeUnit: MetaComputeUnitable {
             dataSource.storeNextResult(result)
             updateDelegate(WithResult: result)
         }
+    }
+    
+    public static func ==(lhs: MetaComputeUnit, rhs: MetaComputeUnit) -> Bool{
+        return lhs.dataSource == rhs.dataSource
     }
     
 }

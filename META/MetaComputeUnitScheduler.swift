@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import iOSSystemServices
 
 typealias Latency = Double
 typealias EnergyConsumtion = Double
+typealias CpuUsage = Float
 
 protocol MetaComputeUnitSchedulable {
     
@@ -26,20 +28,32 @@ protocol MetaComputeUnitSchedulable {
     func start(action: (Any) -> Any)
 }
 
-struct MetaComputeScheduler: MetaComputeUnitSchedulable {
+class MetaComputeScheduler: MetaComputeUnitSchedulable {
     
     var currentLatency: Latency
     var currentEnegyConsumption: EnergyConsumtion
+    var currentCpuUsage: CpuUsage
     
     var backendUrl: URL?
     var computeUnit: MetaComputeUnit
     
-    init(unit: MetaComputeUnit) {
+    var cpuTimer: Timer = Timer()
+    
+    required init(unit: MetaComputeUnit) {
         computeUnit = unit
         
         currentLatency = 0.0
         currentEnegyConsumption = 0.0
+        currentCpuUsage = 0.0
+        
         backendUrl = nil
+        
+        cpuTimer = Timer.schedule(repeatInterval: 0.1) { _ in
+            self.currentCpuUsage = SystemServices().cpuUsage
+            print(SystemServices().cpuUsage)
+        }
+        
+        
     }
 
     func start() {
@@ -48,6 +62,10 @@ struct MetaComputeScheduler: MetaComputeUnitSchedulable {
     
     func start(action: (Any) -> Any) {
         computeUnit.compute(action: action)
+    }
+    
+    deinit {
+        cpuTimer.invalidate()
     }
 }
 

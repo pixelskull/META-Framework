@@ -13,9 +13,11 @@
 		504E608A1E8D3B8000C4E3EF /* META.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 504E60801E8D3B8000C4E3EF /* META.framework */; };
 		504E60911E8D3B8000C4E3EF /* META.h in Headers */ = {isa = PBXBuildFile; fileRef = 504E60831E8D3B8000C4E3EF /* META.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		504E609B1E8D3BA400C4E3EF /* MetaComputeUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504E609A1E8D3BA400C4E3EF /* MetaComputeUnit.swift */; };
+		5054C8871E9BF13F00314D6D /* iOSSystemServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5054C8861E9BF13F00314D6D /* iOSSystemServices.framework */; };
+		5054C88B1E9BF3C600314D6D /* NSTimer+Clusure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5054C88A1E9BF3C600314D6D /* NSTimer+Clusure.swift */; };
+		5054C88D1E9CD50900314D6D /* MetaComputeSchedulerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5054C88C1E9CD50900314D6D /* MetaComputeSchedulerTest.swift */; };
 		5057AC571E93BA2B003B8FAB /* MetaComputeUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5057AC561E93BA2B003B8FAB /* MetaComputeUnitTest.swift */; };
 		506054A41E968E91009DDF1E /* MetaComputeUnitDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506054A31E968E91009DDF1E /* MetaComputeUnitDataSourceTest.swift */; };
-		506054A71E96C5FE009DDF1E /* BatteryInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506054A61E96C5FE009DDF1E /* BatteryInfoService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,9 +40,11 @@
 		504E60891E8D3B8000C4E3EF /* METATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = METATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		504E60901E8D3B8000C4E3EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		504E609A1E8D3BA400C4E3EF /* MetaComputeUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaComputeUnit.swift; sourceTree = "<group>"; };
+		5054C8861E9BF13F00314D6D /* iOSSystemServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iOSSystemServices.framework; path = Carthage/Build/iOS/iOSSystemServices.framework; sourceTree = "<group>"; };
+		5054C88A1E9BF3C600314D6D /* NSTimer+Clusure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTimer+Clusure.swift"; sourceTree = "<group>"; };
+		5054C88C1E9CD50900314D6D /* MetaComputeSchedulerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaComputeSchedulerTest.swift; sourceTree = "<group>"; };
 		5057AC561E93BA2B003B8FAB /* MetaComputeUnitTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaComputeUnitTest.swift; sourceTree = "<group>"; };
 		506054A31E968E91009DDF1E /* MetaComputeUnitDataSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaComputeUnitDataSourceTest.swift; sourceTree = "<group>"; };
-		506054A61E96C5FE009DDF1E /* BatteryInfoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryInfoService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5054C8871E9BF13F00314D6D /* iOSSystemServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +73,7 @@
 				504E60821E8D3B8000C4E3EF /* META */,
 				504E608D1E8D3B8000C4E3EF /* METATests */,
 				504E60811E8D3B8000C4E3EF /* Products */,
+				5054C8851E9BF13F00314D6D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,7 +89,7 @@
 		504E60821E8D3B8000C4E3EF /* META */ = {
 			isa = PBXGroup;
 			children = (
-				506054A51E96C5A5009DDF1E /* SystemServices */,
+				5054C8891E9BF3AC00314D6D /* Extensions */,
 				504E60831E8D3B8000C4E3EF /* META.h */,
 				504E60841E8D3B8000C4E3EF /* Info.plist */,
 				504E609A1E8D3BA400C4E3EF /* MetaComputeUnit.swift */,
@@ -100,16 +106,25 @@
 				504E60901E8D3B8000C4E3EF /* Info.plist */,
 				5057AC561E93BA2B003B8FAB /* MetaComputeUnitTest.swift */,
 				506054A31E968E91009DDF1E /* MetaComputeUnitDataSourceTest.swift */,
+				5054C88C1E9CD50900314D6D /* MetaComputeSchedulerTest.swift */,
 			);
 			path = METATests;
 			sourceTree = "<group>";
 		};
-		506054A51E96C5A5009DDF1E /* SystemServices */ = {
+		5054C8851E9BF13F00314D6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				506054A61E96C5FE009DDF1E /* BatteryInfoService.swift */,
+				5054C8861E9BF13F00314D6D /* iOSSystemServices.framework */,
 			);
-			name = SystemServices;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5054C8891E9BF3AC00314D6D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5054C88A1E9BF3C600314D6D /* NSTimer+Clusure.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,6 +149,7 @@
 				504E607C1E8D3B8000C4E3EF /* Frameworks */,
 				504E607D1E8D3B8000C4E3EF /* Headers */,
 				504E607E1E8D3B8000C4E3EF /* Resources */,
+				5054C8881E9BF18300314D6D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -220,15 +236,32 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5054C8881E9BF18300314D6D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/iOSSystemServices.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		504E607B1E8D3B8000C4E3EF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				5039DFE81E8E9C4800DE21E9 /* MetaComputeUnitScheduler.swift in Sources */,
+				5054C88B1E9BF3C600314D6D /* NSTimer+Clusure.swift in Sources */,
 				504E609B1E8D3BA400C4E3EF /* MetaComputeUnit.swift in Sources */,
 				504AEE641E8E7F0100D644EB /* MetaComputeDataSource.swift in Sources */,
-				506054A71E96C5FE009DDF1E /* BatteryInfoService.swift in Sources */,
 				504AEE621E8E7ED900D644EB /* MetaComputeUnitDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5054C88D1E9CD50900314D6D /* MetaComputeSchedulerTest.swift in Sources */,
 				5057AC571E93BA2B003B8FAB /* MetaComputeUnitTest.swift in Sources */,
 				506054A41E968E91009DDF1E /* MetaComputeUnitDataSourceTest.swift in Sources */,
 			);
@@ -364,6 +398,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = META/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -385,6 +423,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = META/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

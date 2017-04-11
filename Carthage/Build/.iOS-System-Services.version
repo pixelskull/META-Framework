@@ -1,0 +1,19 @@
+{
+  "commitish" : "43015b1d0fbb151641c445dc16fa2db6153cb37f",
+  "iOS" : [
+    {
+      "hash" : "b66de7c8b2a20242d206560228c5ccab432d519dc2efa8f257790f90703e8838",
+      "name" : "iOSSystemServices"
+    }
+  ],
+  "xcodeVersion" : "Xcode 8.3.1\nBuild version 8E1000a",
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "Mac" : [
+
+  ]
+}

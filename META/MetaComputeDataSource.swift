@@ -32,7 +32,7 @@ enum MetaComputeUnitDataSourceDataSet {
     case Data
 }
 
-class MetaComputeDataSource: MetaComputeDataSourceable {
+class MetaComputeDataSource: MetaComputeDataSourceable, Equatable {
     var data: [Any]       = [Any]()
     var results: [Any]    = [Any]()
     
@@ -78,6 +78,12 @@ class MetaComputeDataSource: MetaComputeDataSourceable {
         resultSemaphore.wait()
         results.append(result)
         resultSemaphore.signal()
+    }
+    
+    /// TODO: statisfy this problem (don't use Protocols and work generic)
+    public static func ==(lhs: MetaComputeDataSource, rhs: MetaComputeDataSource) -> Bool{
+        return lhs.data.count == rhs.data.count &&
+               lhs.results.count == rhs.results.count
     }
 }
 
