@@ -19,8 +19,10 @@ protocol MetaComputeDataSourceable {
     
     init(data: [Any])
     
+    func hasNextElement() -> Bool
     func getNextElement() -> Any?
     
+    func hashNextResult() -> Bool
     func getNextResult() -> Any?
     
     func storeNextResult(_ result: Any)
@@ -53,26 +55,38 @@ class MetaComputeDataSource: MetaComputeDataSourceable, Equatable {
     
     private func getElementFrom(dataSet: MetaComputeUnitDataSourceDataSet,
                                 semaphore: DispatchSemaphore) -> Any? {
+        guard !data.isEmpty else { return nil }
         semaphore.wait()
         let result: Any?
         switch dataSet {
         case .Result:
-            result = results.first
+            result = results.removeFirst()
         default:
-            result = data.first
+            result = data.removeFirst()
         }
         semaphore.signal()
 
         return result
     }
     
+    
+    func hasNextElement() -> Bool {
+        return data.first != nil
+    }
+    
     func getNextElement() -> Any? {
         return getElementFrom(dataSet: .Data, semaphore: dataSemaphore)
+    }
+    
+    
+    func hashNextResult() -> Bool {
+        return results.first != nil
     }
     
     func getNextResult() -> Any? {
         return getElementFrom(dataSet: .Result, semaphore: resultSemaphore)
     }
+    
     
     func storeNextResult(_ result: Any) {
         resultSemaphore.wait()

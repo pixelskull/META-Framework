@@ -54,8 +54,6 @@ class MetaComputeUnitDataSourceTest: XCTestCase {
         }
     }
     
-    
-    
     func testMultithreadAccessPerformance() {
         let dataSource = initDataSourceWithTestData(testData1)
         self.measure {
