@@ -33,7 +33,7 @@ class MetaComputeSchedulerTest: XCTestCase {
         while true {
             let currentTime = Date().timeIntervalSince1970
             if  condition() ||
-                (finishingTime - currentTime == 0) {
+                (finishingTime - currentTime) <= 0 {
                 break
             }
         }
@@ -44,8 +44,6 @@ class MetaComputeSchedulerTest: XCTestCase {
     }
     
     func testCurrentCpuUsage() {
-//        Thread.sleep(forTimeInterval: 10.0)
-//        XCTAssert((scheduler.currentCpuUsage != nil), "CPU usage was not updated")
         wait(withTimeout: 1.0) { self.scheduler.currentCpuUsage != nil }
         XCTAssert((scheduler.currentCpuUsage != nil), "CPU usage value was not updated")
     }
@@ -55,11 +53,11 @@ class MetaComputeSchedulerTest: XCTestCase {
         XCTAssert(scheduler.currentEnegyConsumption != nil, "Energy consumption value was not updated")
     }
     
-    // TODO: activate this test when network is usefull 
-//    func testCurrentLatency() {
-//        wait(withTimeout: 1.0) { self.scheduler.currentLatency != nil }
-//        XCTAssert(scheduler.currentLatency != nil, "Latency value was not updated")
-//    }
+    // TODO: activate this test when network is usefull
+    func testCurrentLatency() {
+        wait(withTimeout: 3.0) { self.scheduler.currentLatency != nil }
+        XCTAssert(scheduler.currentLatency != nil, "Latency value was not updated")
+    }
     
     func testBackendURL() {
         let dummyURL = URL(string: "http://test.com/testingURL")

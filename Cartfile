@@ -1,1 +1,2 @@
 github "pwlkania/iOS-System-Services" "carthage"
+github "Alamofire/Alamofire" ~> 4.4

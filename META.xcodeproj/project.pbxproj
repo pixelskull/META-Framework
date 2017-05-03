@@ -17,6 +17,10 @@
 		5054C88B1E9BF3C600314D6D /* NSTimer+Clusure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5054C88A1E9BF3C600314D6D /* NSTimer+Clusure.swift */; };
 		5054C88D1E9CD50900314D6D /* MetaComputeSchedulerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5054C88C1E9CD50900314D6D /* MetaComputeSchedulerTest.swift */; };
 		5057AC571E93BA2B003B8FAB /* MetaComputeUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5057AC561E93BA2B003B8FAB /* MetaComputeUnitTest.swift */; };
+		5059DFE61E9E4FC400C6ABA3 /* NetworkLatencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5059DFE51E9E4FC400C6ABA3 /* NetworkLatencyService.swift */; };
+		5059DFE81E9E514D00C6ABA3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5059DFE71E9E514D00C6ABA3 /* Alamofire.framework */; };
+		5059DFEC1E9F93F400C6ABA3 /* MetaSchedulerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5059DFEB1E9F93F400C6ABA3 /* MetaSchedulerHelper.swift */; };
+		5059DFEE1E9FA8CB00C6ABA3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5059DFED1E9FA8CB00C6ABA3 /* Constants.swift */; };
 		506054A41E968E91009DDF1E /* MetaComputeUnitDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506054A31E968E91009DDF1E /* MetaComputeUnitDataSourceTest.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +48,10 @@
 		5054C88A1E9BF3C600314D6D /* NSTimer+Clusure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTimer+Clusure.swift"; sourceTree = "<group>"; };
 		5054C88C1E9CD50900314D6D /* MetaComputeSchedulerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaComputeSchedulerTest.swift; sourceTree = "<group>"; };
 		5057AC561E93BA2B003B8FAB /* MetaComputeUnitTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaComputeUnitTest.swift; sourceTree = "<group>"; };
+		5059DFE51E9E4FC400C6ABA3 /* NetworkLatencyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLatencyService.swift; sourceTree = "<group>"; };
+		5059DFE71E9E514D00C6ABA3 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		5059DFEB1E9F93F400C6ABA3 /* MetaSchedulerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaSchedulerHelper.swift; sourceTree = "<group>"; };
+		5059DFED1E9FA8CB00C6ABA3 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		506054A31E968E91009DDF1E /* MetaComputeUnitDataSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaComputeUnitDataSourceTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -53,6 +61,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5054C8871E9BF13F00314D6D /* iOSSystemServices.framework in Frameworks */,
+				5059DFE81E9E514D00C6ABA3 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,13 +98,13 @@
 		504E60821E8D3B8000C4E3EF /* META */ = {
 			isa = PBXGroup;
 			children = (
+				5059DFEA1E9F93DD00C6ABA3 /* Helper */,
+				5059DFE91E9F93CA00C6ABA3 /* Core */,
+				5059DFE41E9E4FAF00C6ABA3 /* Services */,
 				5054C8891E9BF3AC00314D6D /* Extensions */,
 				504E60831E8D3B8000C4E3EF /* META.h */,
 				504E60841E8D3B8000C4E3EF /* Info.plist */,
-				504E609A1E8D3BA400C4E3EF /* MetaComputeUnit.swift */,
-				504AEE611E8E7ED900D644EB /* MetaComputeUnitDelegate.swift */,
-				504AEE631E8E7F0100D644EB /* MetaComputeDataSource.swift */,
-				5039DFE71E8E9C4800DE21E9 /* MetaComputeUnitScheduler.swift */,
+				5059DFED1E9FA8CB00C6ABA3 /* Constants.swift */,
 			);
 			path = META;
 			sourceTree = "<group>";
@@ -114,6 +123,7 @@
 		5054C8851E9BF13F00314D6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5059DFE71E9E514D00C6ABA3 /* Alamofire.framework */,
 				5054C8861E9BF13F00314D6D /* iOSSystemServices.framework */,
 			);
 			name = Frameworks;
@@ -125,6 +135,33 @@
 				5054C88A1E9BF3C600314D6D /* NSTimer+Clusure.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		5059DFE41E9E4FAF00C6ABA3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5059DFE51E9E4FC400C6ABA3 /* NetworkLatencyService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		5059DFE91E9F93CA00C6ABA3 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				504E609A1E8D3BA400C4E3EF /* MetaComputeUnit.swift */,
+				504AEE611E8E7ED900D644EB /* MetaComputeUnitDelegate.swift */,
+				504AEE631E8E7F0100D644EB /* MetaComputeDataSource.swift */,
+				5039DFE71E8E9C4800DE21E9 /* MetaComputeUnitScheduler.swift */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		5059DFEA1E9F93DD00C6ABA3 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				5059DFEB1E9F93F400C6ABA3 /* MetaSchedulerHelper.swift */,
+			);
+			name = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +281,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/iOSSystemServices.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 			);
 			outputPaths = (
 			);
@@ -259,10 +297,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5039DFE81E8E9C4800DE21E9 /* MetaComputeUnitScheduler.swift in Sources */,
+				5059DFE61E9E4FC400C6ABA3 /* NetworkLatencyService.swift in Sources */,
 				5054C88B1E9BF3C600314D6D /* NSTimer+Clusure.swift in Sources */,
 				504E609B1E8D3BA400C4E3EF /* MetaComputeUnit.swift in Sources */,
+				5059DFEC1E9F93F400C6ABA3 /* MetaSchedulerHelper.swift in Sources */,
 				504AEE641E8E7F0100D644EB /* MetaComputeDataSource.swift in Sources */,
 				504AEE621E8E7ED900D644EB /* MetaComputeUnitDelegate.swift in Sources */,
+				5059DFEE1E9FA8CB00C6ABA3 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

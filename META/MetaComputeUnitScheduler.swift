@@ -9,20 +9,17 @@
 import Foundation
 import iOSSystemServices
 
-struct Latency {
+
+struct SchedulingValue {
     let value: Float
     let timestamp: TimeInterval
 }
 
-struct EnergyConsumtion {
-    let value: Float
-    let timestamp: TimeInterval
-}
+typealias Latency = SchedulingValue
+typealias CpuUsage = SchedulingValue
+typealias BatterieLevel = SchedulingValue
+typealias EnergyConsumtion = Float
 
-struct CpuUsage {
-    let value: Float
-    let timestamp: TimeInterval
-}
 
 protocol MetaComputeUnitSchedulable {
     
@@ -42,16 +39,24 @@ protocol MetaComputeUnitSchedulable {
 
 class MetaComputeScheduler: MetaComputeUnitSchedulable {
     
-    var latencyCheckTimer: Timer!
-    var latencies = [Latency]()
+    private var latencyCheckTimer: Timer!
+    private var latencies = [Latency]()
     var currentLatency: Latency? {
         get { return latencies.last }
     }
     
-    var energyTimer: Timer!
-    var energyConsumptions = [EnergyConsumtion]()
+    private var energyTimer: Timer!
+    private var energyConsumptions = [BatterieLevel]()
     var currentEnegyConsumption: EnergyConsumtion? {
-        get { return energyConsumptions.last }
+        get {
+            let size = energyConsumptions.count
+            let latest = energyConsumptions[size-1..<size]
+            
+            let sum = latest.reduce(0.0) { $0 + $1.value }
+            let sub = latest.reduce(0.0) { $0 - $1.value }
+            
+            return (sub / (sum/2)) * 100
+        }
     }
     
     var cpuTimer: Timer!
@@ -73,12 +78,15 @@ class MetaComputeScheduler: MetaComputeUnitSchedulable {
         setupCpuTimer()
         
         // set initial value due to latency in timer start
-        energyConsumptions.append(createEnergyConsumtionEntry())
+        energyConsumptions.append(createBatterieLevelEntry())
         setupEnegryTimer()
+        
+        appendLatencyEntry()
+        setupLatencyTimer()
     }
     
     private func setupCpuTimer() {
-        cpuTimer = Timer.schedule(repeatInterval: 0.2) { _ in
+        cpuTimer = Timer.schedule(repeatInterval: Constants.cpuTimerInterval) { _ in
             self.cpuUsages.append(self.createCpuUsageEntry())
         }
     }
@@ -89,15 +97,28 @@ class MetaComputeScheduler: MetaComputeUnitSchedulable {
     }
     
     private func setupEnegryTimer() {
-        energyTimer = Timer.schedule(repeatInterval: 0.5) { _ in
-            print(self.createEnergyConsumtionEntry().value)
-            self.energyConsumptions.append(self.createEnergyConsumtionEntry())
+        energyTimer = Timer.schedule(repeatInterval: Constants.energyTimerInterval) { _ in
+            self.energyConsumptions.append(self.createBatterieLevelEntry())
         }
     }
     
-    private func createEnergyConsumtionEntry() -> EnergyConsumtion {
-        return EnergyConsumtion(value: SystemServices().batteryLevel,
-                                timestamp: Date().timeIntervalSince1970)
+    private func createBatterieLevelEntry() -> BatterieLevel {
+        return BatterieLevel(value: SystemServices().batteryLevel,
+                             timestamp: Date().timeIntervalSince1970)
+    }
+    
+    private func setupLatencyTimer() {
+        latencyCheckTimer = Timer.schedule(repeatInterval: Constants.latencyTimerInterval) { _ in
+            self.appendLatencyEntry()
+        }
+    }
+    
+    private func appendLatencyEntry() {
+        NetworkLatencyService.getLatency(to: "http://google.de") { latency in
+            let latency = Latency(value: Float(latency),
+                                  timestamp: Date().timeIntervalSince1970)
+            self.latencies.append(latency)
+        }
     }
 
     func start() {
@@ -115,5 +136,7 @@ class MetaComputeScheduler: MetaComputeUnitSchedulable {
     
     deinit {
         cpuTimer.invalidate()
+        energyTimer.invalidate()
+        latencyCheckTimer.invalidate()
     }
 }
