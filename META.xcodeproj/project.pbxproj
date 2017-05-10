@@ -19,9 +19,12 @@
 		5057AC571E93BA2B003B8FAB /* MetaComputeUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5057AC561E93BA2B003B8FAB /* MetaComputeUnitTest.swift */; };
 		5059DFE61E9E4FC400C6ABA3 /* NetworkLatencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5059DFE51E9E4FC400C6ABA3 /* NetworkLatencyService.swift */; };
 		5059DFE81E9E514D00C6ABA3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5059DFE71E9E514D00C6ABA3 /* Alamofire.framework */; };
-		5059DFEC1E9F93F400C6ABA3 /* MetaSchedulerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5059DFEB1E9F93F400C6ABA3 /* MetaSchedulerHelper.swift */; };
 		5059DFEE1E9FA8CB00C6ABA3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5059DFED1E9FA8CB00C6ABA3 /* Constants.swift */; };
 		506054A41E968E91009DDF1E /* MetaComputeUnitDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506054A31E968E91009DDF1E /* MetaComputeUnitDataSourceTest.swift */; };
+		508FB0951EBA0F0D0014E5E3 /* SchedulingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508FB0941EBA0F0D0014E5E3 /* SchedulingStrategy.swift */; };
+		508FB0971EBA0F390014E5E3 /* AdaptiveSchedulingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508FB0961EBA0F390014E5E3 /* AdaptiveSchedulingStrategy.swift */; };
+		508FB09A1EC1C5930014E5E3 /* SchedulingOptimizationStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508FB0991EC1C5930014E5E3 /* SchedulingOptimizationStrategy.swift */; };
+		508FB09C1EC1C5F90014E5E3 /* EnergyEffizientOptimizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508FB09B1EC1C5F90014E5E3 /* EnergyEffizientOptimizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,9 +53,12 @@
 		5057AC561E93BA2B003B8FAB /* MetaComputeUnitTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaComputeUnitTest.swift; sourceTree = "<group>"; };
 		5059DFE51E9E4FC400C6ABA3 /* NetworkLatencyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLatencyService.swift; sourceTree = "<group>"; };
 		5059DFE71E9E514D00C6ABA3 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		5059DFEB1E9F93F400C6ABA3 /* MetaSchedulerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaSchedulerHelper.swift; sourceTree = "<group>"; };
 		5059DFED1E9FA8CB00C6ABA3 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		506054A31E968E91009DDF1E /* MetaComputeUnitDataSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaComputeUnitDataSourceTest.swift; sourceTree = "<group>"; };
+		508FB0941EBA0F0D0014E5E3 /* SchedulingStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulingStrategy.swift; sourceTree = "<group>"; };
+		508FB0961EBA0F390014E5E3 /* AdaptiveSchedulingStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdaptiveSchedulingStrategy.swift; sourceTree = "<group>"; };
+		508FB0991EC1C5930014E5E3 /* SchedulingOptimizationStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulingOptimizationStrategy.swift; sourceTree = "<group>"; };
+		508FB09B1EC1C5F90014E5E3 /* EnergyEffizientOptimizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyEffizientOptimizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +104,6 @@
 		504E60821E8D3B8000C4E3EF /* META */ = {
 			isa = PBXGroup;
 			children = (
-				5059DFEA1E9F93DD00C6ABA3 /* Helper */,
 				5059DFE91E9F93CA00C6ABA3 /* Core */,
 				5059DFE41E9E4FAF00C6ABA3 /* Services */,
 				5054C8891E9BF3AC00314D6D /* Extensions */,
@@ -148,6 +153,8 @@
 		5059DFE91E9F93CA00C6ABA3 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				508FB0981EC1C57F0014E5E3 /* Scheduling Optimization Strategies */,
+				5059DFEA1E9F93DD00C6ABA3 /* Scheduling Strategies */,
 				504E609A1E8D3BA400C4E3EF /* MetaComputeUnit.swift */,
 				504AEE611E8E7ED900D644EB /* MetaComputeUnitDelegate.swift */,
 				504AEE631E8E7F0100D644EB /* MetaComputeDataSource.swift */,
@@ -156,12 +163,22 @@
 			name = Core;
 			sourceTree = "<group>";
 		};
-		5059DFEA1E9F93DD00C6ABA3 /* Helper */ = {
+		5059DFEA1E9F93DD00C6ABA3 /* Scheduling Strategies */ = {
 			isa = PBXGroup;
 			children = (
-				5059DFEB1E9F93F400C6ABA3 /* MetaSchedulerHelper.swift */,
+				508FB0941EBA0F0D0014E5E3 /* SchedulingStrategy.swift */,
+				508FB0961EBA0F390014E5E3 /* AdaptiveSchedulingStrategy.swift */,
 			);
-			name = Helper;
+			name = "Scheduling Strategies";
+			sourceTree = "<group>";
+		};
+		508FB0981EC1C57F0014E5E3 /* Scheduling Optimization Strategies */ = {
+			isa = PBXGroup;
+			children = (
+				508FB0991EC1C5930014E5E3 /* SchedulingOptimizationStrategy.swift */,
+				508FB09B1EC1C5F90014E5E3 /* EnergyEffizientOptimizer.swift */,
+			);
+			name = "Scheduling Optimization Strategies";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,11 +315,14 @@
 			files = (
 				5039DFE81E8E9C4800DE21E9 /* MetaComputeUnitScheduler.swift in Sources */,
 				5059DFE61E9E4FC400C6ABA3 /* NetworkLatencyService.swift in Sources */,
+				508FB0951EBA0F0D0014E5E3 /* SchedulingStrategy.swift in Sources */,
 				5054C88B1E9BF3C600314D6D /* NSTimer+Clusure.swift in Sources */,
 				504E609B1E8D3BA400C4E3EF /* MetaComputeUnit.swift in Sources */,
-				5059DFEC1E9F93F400C6ABA3 /* MetaSchedulerHelper.swift in Sources */,
+				508FB09A1EC1C5930014E5E3 /* SchedulingOptimizationStrategy.swift in Sources */,
+				508FB09C1EC1C5F90014E5E3 /* EnergyEffizientOptimizer.swift in Sources */,
 				504AEE641E8E7F0100D644EB /* MetaComputeDataSource.swift in Sources */,
 				504AEE621E8E7ED900D644EB /* MetaComputeUnitDelegate.swift in Sources */,
+				508FB0971EBA0F390014E5E3 /* AdaptiveSchedulingStrategy.swift in Sources */,
 				5059DFEE1E9FA8CB00C6ABA3 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
