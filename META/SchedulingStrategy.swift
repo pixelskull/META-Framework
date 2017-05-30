@@ -9,7 +9,6 @@
 import Foundation
 
 protocol SchedulingStrategy {
-    
-    func schedule() 
-    
+    func schedule()
+    mutating func stop()
 }

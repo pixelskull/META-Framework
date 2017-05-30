@@ -11,26 +11,22 @@ import Foundation
 protocol MetaComputeUnitable {
     
     var delegate: MetaComputeUnitDelegate? { get set }
-    var dataSource: MetaComputeDataSource { get set }
     
     
-    init(delegate: MetaComputeUnitDelegate?, dataSource: MetaComputeDataSource)
+    init(delegate: MetaComputeUnitDelegate?)
     
-    func compute()
-    func compute(action: (Any) -> Any)
-    func computeAll(action: (Any) -> Any)
+    func compute<T>(data: T) -> T
+    func compute<T>(data:T, WithAction action: (T) -> T) -> T
     
 }
 
 
-struct MetaComputeUnit: MetaComputeUnitable, Equatable {
+struct MetaComputeUnit: MetaComputeUnitable {
     
     var delegate: MetaComputeUnitDelegate?
-    var dataSource: MetaComputeDataSource
     
     
-    init(delegate: MetaComputeUnitDelegate?, dataSource:MetaComputeDataSource) {
-        self.dataSource = dataSource
+    init(delegate: MetaComputeUnitDelegate?) {
         self.delegate   = delegate
     }
     
@@ -40,73 +36,15 @@ struct MetaComputeUnit: MetaComputeUnitable, Equatable {
         delegate.computeUnitCompletedResult(result)
     }
     
-    func compute() {
-        if let result = dataSource.getNextElement() {
-            dataSource.storeNextResult(result)
-            updateDelegate(WithResult: result)
-        }
+    /// Default implementation does nothing
+    func compute<T>(data:T) -> T {
+        updateDelegate(WithResult: data)
+        return data
     }
     
-    func computeAll() {
-        guard !dataSource.data.isEmpty else { return }
-        dataSource.data.forEach{ element in
-            let result = element
-            dataSource.storeNextResult(result)
-            updateDelegate(WithResult: result)
-        }
+    func compute<T>(data:T, WithAction action: (T) -> T) -> T {
+        let result = action(data)
+        updateDelegate(WithResult: result)
+        return result
     }
-    
-    func compute(action: (Any) -> Any) {
-        if let element = dataSource.getNextElement() {
-            let result = action(element)
-            dataSource.storeNextResult(result)
-            updateDelegate(WithResult: result)
-        }
-    }
-    
-    func computeAll(action: (Any) -> Any) {
-        guard !dataSource.data.isEmpty else { return }
-        dataSource.data.forEach{ element in
-            let result = action(element)
-            dataSource.storeNextResult(result)
-            updateDelegate(WithResult: result)
-        }
-    }
-    
-    public static func ==(lhs: MetaComputeUnit, rhs: MetaComputeUnit) -> Bool{
-        return lhs.dataSource == rhs.dataSource
-    }
-    
 }
-
-//extension MetaComputeUnit {
-//    
-//    init(delegate: MetaComputeUnitDelegate, dataSource:MetaComputeDataSource) {
-//        self.init()
-//        self.dataSource = dataSource
-//        self.delegate   = delegate
-//    }
-//    
-//    func compute() {
-//        if let result = dataSource.getNextElement() {
-//            dataSource.storeNextResult(result)
-//            
-//            // sending update to delegate
-//            delegate.computeUnitUpdatedResults()
-//            delegate.computeUnitCompletedResult(result)
-//        }
-//    }
-//    
-//    func compute(action: (Any) -> Any) {
-//        if let element = dataSource.getNextElement() {
-//            let result = action(element)
-//            dataSource.storeNextResult(result)
-//            
-//            // sending update to delegate
-//            delegate.computeUnitUpdatedResults()
-//            delegate.computeUnitCompletedResult(result)
-//        }
-//    }
-//    
-//}
-

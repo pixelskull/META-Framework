@@ -31,14 +31,17 @@ protocol MetaComputeUnitSchedulable {
     var currentEnegyConsumption: EnergyConsumtion? { get }
     var currentCpuUsage: CpuUsage? { get }
     
-    init(unit: MetaComputeUnit)
+    var dataSource: MetaComputeDataSource { get set }
+    
+    init(unit: MetaComputeUnit, dataSource: MetaComputeDataSource)
     
     func start()
-    func start(action: (Any) -> Any)
+    func start(action: @escaping (Any) -> Any)
 }
 
 class MetaComputeScheduler: MetaComputeUnitSchedulable {
     
+    // MARK: Properties
     private var latencyCheckTimer: Timer!
     private var latencies = [Latency]()
     var currentLatency: Latency? {
@@ -66,18 +69,28 @@ class MetaComputeScheduler: MetaComputeUnitSchedulable {
     }
     
     var backendUrl: URL?
+    
     var computeUnit: MetaComputeUnit
+    var dataSource: MetaComputeDataSource
     
+    var scheduler: SchedulingStrategy!
     
-    required init(unit: MetaComputeUnit) {
-        computeUnit = unit
-        backendUrl = nil
+    // MARK: Initializer
+    required init(unit: MetaComputeUnit, dataSource: MetaComputeDataSource) {
+        self.computeUnit = unit
+        self.dataSource  = dataSource
+        self.backendUrl = nil
         
-        // set initial value due to latency in timer start
+        self.scheduler = AdaptiveSchedulingStrategy(withLocalComputationFaktor: 0.5,
+                                                    withDataSource: dataSource,
+                                                    basedOn: computeUnit)
+        
+        
+        // set initial value due to latency in timer start 
+        // for cpu usage, energy consumptions and latency
         cpuUsages.append(createCpuUsageEntry())
         setupCpuTimer()
         
-        // set initial value due to latency in timer start
         energyConsumptions.append(createBatterieLevelEntry())
         setupEnegryTimer()
         
@@ -85,6 +98,7 @@ class MetaComputeScheduler: MetaComputeUnitSchedulable {
         setupLatencyTimer()
     }
     
+    // MARK: Private instance functions
     private func setupCpuTimer() {
         cpuTimer = Timer.schedule(repeatInterval: Constants.cpuTimerInterval) { _ in
             self.cpuUsages.append(self.createCpuUsageEntry())
@@ -121,18 +135,26 @@ class MetaComputeScheduler: MetaComputeUnitSchedulable {
         }
     }
 
+    // MARK: Interfaced functions
     func start() {
-        while computeUnit.dataSource.hasNextElement() {
-            computeUnit.compute()
+//        while computeUnit.dataSource.hasNextElement() {
+//            computeUnit.compute()
+//        }
+        scheduler = AdaptiveSchedulingStrategy(withLocalComputationFaktor: 0.5,
+                                               withDataSource: dataSource,
+                                                   basedOn: computeUnit)
+        scheduler.schedule()
+    }
+    
+    func start(action: @escaping (Any) -> Any) {
+        while dataSource.hasNextElement() {
+            // TODO: implement the scheduling here
+            let result = computeUnit.compute(data: dataSource.getNextElement()!, WithAction: action)
+            dataSource.storeNextResult(result)
         }
     }
     
-    func start(action: (Any) -> Any) {
-        while computeUnit.dataSource.hasNextElement() {
-            // TODO: implement the scheduling here
-            computeUnit.compute(action: action)
-        }
-    }
+    func stop() { scheduler.stop() }
     
     deinit {
         cpuTimer.invalidate()

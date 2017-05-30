@@ -16,10 +16,11 @@ enum OptimizingParameter {
 }
 
 struct AdaptiveSchedulingStrategy : SchedulingStrategy {
+    
     // MARK: Properties
-    private var _dataSource: MetaComputeDataSource
-    var dataSource: MetaComputeDataSource {
-        get { return _dataSource }
+    private var _computeUnit: MetaComputeUnit
+    var computeUnit: MetaComputeUnit {
+        get { return _computeUnit }
     }
     
     private var _localCompFaktor : Double
@@ -37,19 +38,25 @@ struct AdaptiveSchedulingStrategy : SchedulingStrategy {
     }
     
     private var _optimizationAlgortihm: SchedulingOptimizationStrategy?
-    var optimizationAlgortihm : SchedulingOptimizationStrategy? {
+    var optimizationAlgortihm : SchedulingOptimizationStrategy! {
         get { return _optimizationAlgortihm }
     }
     
+    private var dataSource: MetaComputeDataSource
+    
+    
     private let dataChunkSize:Int = 10
+    private var operate:Bool = true
     
     // MARK: Initializer(s)
-    init(withLocalComputationFaktor faktor : Double,
-         basedOn dataSource:MetaComputeDataSource,
-         optimizedFor parameter : OptimizingParameter = .EnergyEfficency) {
+    init(withLocalComputationFaktor faktor: Double,
+         withDataSource data: MetaComputeDataSource,
+         basedOn computeUnit: MetaComputeUnit,
+         optimizedFor parameter: OptimizingParameter = .EnergyEfficency) {
         
-        _dataSource = dataSource
+        _computeUnit = computeUnit
         _localCompFaktor = faktor
+        dataSource = data
         
         switch parameter {
         case .CPUHighUsageBoost:
@@ -61,28 +68,29 @@ struct AdaptiveSchedulingStrategy : SchedulingStrategy {
         case .EnergyEfficency:
             _optimizationAlgortihm = nil // TODO: add right strategy here
             break
-        default:
+        default: // .Lowlatency
             _optimizationAlgortihm = LatencyEffizientOptimizer()
             break
         }
     }
     
-    // MARK: Operations
+    // MARK: Interfaced operations
     func schedule() {
-        let (local, _) = (optimizationAlgortihm?.getOptimizedValues())!
-        
-        let upperLocalBound:Int = Int( round(Double(dataChunkSize)/local) )
-        let valuesToComputeLocally  = ( 0 ..< upperLocalBound ).map { _ in
-            self.dataSource.getNextElement()
+        while(operate) {
+            let (local, _) = optimizationAlgortihm.getOptimizedValues()
+            
+            let upperLocalBound:Int = Int( round(Double(dataChunkSize)/local) )
+            let valuesToComputeLocally  = ( 0 ..< upperLocalBound ).map { _ in
+                self.dataSource.getNextElement()
+            }
+            
+            let valuesToComputeRemotely = ( upperLocalBound ... dataChunkSize ).map { _ in
+                self.dataSource.getNextElement()
+            }
+            print(valuesToComputeLocally)
+            print(valuesToComputeRemotely)
         }
-        let valuesToComputeRemotely = ( upperLocalBound ... dataChunkSize ).map { _ in
-            self.dataSource.getNextElement()
-        }
-        
-        print(valuesToComputeLocally)
-        print(valuesToComputeRemotely)
-        // TODO: add operation here
     }
     
-    
+    mutating func stop() { operate = false }
 }
