@@ -27,10 +27,6 @@ protocol MetaComputeUnitSchedulable {
     
     var backendUrl: URL? { get set }
     
-//    var currentLatency: Latency? { get }
-//    var currentEnegyConsumption: EnergyConsumtion? { get }
-//    var currentCpuUsage: CpuUsage? { get }
-    
     var dataSource: MetaComputeDataSource { get set }
     
     init(unit: MetaComputeUnit, dataSource: MetaComputeDataSource)
@@ -61,7 +57,7 @@ class MetaComputeScheduler: MetaComputeUnitSchedulable {
         self.dataSource  = dataSource
         self.backendUrl = nil
         
-        self.scheduler = AdaptiveSchedulingStrategy(withLocalComputationFaktor: 0.5,
+        self.scheduler = AdaptiveSchedulingStrategy(withLocalComputationFactor: 0.5,
                                                     withDataSource: dataSource,
                                                     basedOn: computeUnit)
     }
@@ -69,8 +65,15 @@ class MetaComputeScheduler: MetaComputeUnitSchedulable {
     // MARK: Private instance functions
 
     // MARK: Interfaced functions
+    
+    /**
+     lets you start the computation with distribution and management
+     starts with local/remote computation factor 0.5
+     
+     **requires configurated DataSource and ComputeUnit**
+    */
     func start() {
-        scheduler = AdaptiveSchedulingStrategy(withLocalComputationFaktor: 0.5,
+        scheduler = AdaptiveSchedulingStrategy(withLocalComputationFactor: 0.5,
                                                withDataSource: dataSource,
                                                    basedOn: computeUnit)
         scheduler.schedule()

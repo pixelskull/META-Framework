@@ -49,7 +49,7 @@ struct AdaptiveSchedulingStrategy : SchedulingStrategy {
     private var operate:Bool = true
     
     // MARK: Initializer(s)
-    init(withLocalComputationFaktor faktor: Double,
+    init(withLocalComputationFactor faktor: Double,
          withDataSource data: MetaComputeDataSource,
          basedOn computeUnit: MetaComputeUnit,
          optimizedFor parameter: OptimizingParameter = .EnergyEfficency) {
