@@ -13,6 +13,7 @@ enum OptimizingParameter {
     case CPUHighUsageBoost
     case CPUIdleUsageBoost
     case Lowlatency
+    case Security
 }
 
 struct AdaptiveSchedulingStrategy : SchedulingStrategy {

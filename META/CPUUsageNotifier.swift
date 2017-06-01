@@ -16,11 +16,11 @@ class CPUUsageNotifier {
     var cpuTimer: Timer!
     var cpuUsages = [CpuUsage]() {
         willSet {
-            observer.willChange(propertyName: "cpuUsages", newPropertyValue: newValue)
+            observer.willChange(propertyName: "cpuUsagesWillChange", newPropertyValue: newValue)
         }
         
         didSet {
-            observer.didChange(propertyName: "cpuUsages", oldPropertyValue: oldValue)
+            observer.didChange(propertyName: "cpuUsagesDidChange", oldPropertyValue: oldValue)
         }
     }
     

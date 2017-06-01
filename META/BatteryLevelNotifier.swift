@@ -17,18 +17,18 @@ class BatterieLevelNotifier {
     private var energyTimer: Timer!
     private var energyConsumptions = [BatterieLevel]() {
         willSet(newValue) {
-            observer.willChange(propertyName: "energyConsumptions", newPropertyValue: newValue)
+            observer.willChange(propertyName: "energyConsumptionsWillChange", newPropertyValue: newValue)
         }
         
         didSet {
-            observer.didChange(propertyName: "energyConsumptions", oldPropertyValue: oldValue)
+            observer.didChange(propertyName: "energyConsumptionsDidChange", oldPropertyValue: oldValue)
         }
     }
     
     var currentEnegyConsumption: EnergyConsumtion? {
         get {
             let size = energyConsumptions.count
-            let latest = energyConsumptions[size-1..<size]
+            let latest = energyConsumptions[size-1 ..< size]
             
             let sum = latest.reduce(0.0) { $0 + $1.value }
             let sub = latest.reduce(0.0) { $0 - $1.value }

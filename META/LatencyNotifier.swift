@@ -16,11 +16,11 @@ class LatencyNotifier {
     private var latencyCheckTimer: Timer!
     private var latencies = [Latency]() {
         willSet(newValue) {
-            observer.willChange(propertyName: "latencies", newPropertyValue: newValue)
+            observer.willChange(propertyName: "latenciesWillChange", newPropertyValue: newValue)
         }
         
         didSet {
-            observer.didChange(propertyName: "latencies", oldPropertyValue: oldValue)
+            observer.didChange(propertyName: "latenciesDidChange", oldPropertyValue: oldValue)
         }
     }
     
