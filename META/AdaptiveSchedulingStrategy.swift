@@ -19,8 +19,8 @@ enum OptimizingParameter {
 struct AdaptiveSchedulingStrategy : SchedulingStrategy {
     
     // MARK: Properties
-    private var _computeUnit: MetaComputeUnit
-    var computeUnit: MetaComputeUnit {
+    private var _computeUnit: ComputeUnit
+    var computeUnit: ComputeUnit {
         get { return _computeUnit }
     }
     
@@ -52,7 +52,7 @@ struct AdaptiveSchedulingStrategy : SchedulingStrategy {
     // MARK: Initializer(s)
     init(withLocalComputationFactor faktor: Double,
          withDataSource data: MetaComputeDataSource,
-         basedOn computeUnit: MetaComputeUnit,
+         basedOn computeUnit: ComputeUnit,
          optimizedFor parameter: OptimizingParameter = .EnergyEfficency) {
         
         _computeUnit = computeUnit

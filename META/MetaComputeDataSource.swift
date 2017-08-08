@@ -10,8 +10,8 @@ import Foundation
 
 protocol MetaComputeDataSourceable {
     
-    var data:[Any] { get set }
-    var results:[Any] { get set }
+    var data:[MetaComuteUnitDataSourceSet] { get set }
+    var results:[MetaComuteUnitDataSourceSet] { get set }
     
     var dataSemaphore:DispatchSemaphore { get set }
     var resultSemaphore:DispatchSemaphore { get set }
@@ -20,23 +20,29 @@ protocol MetaComputeDataSourceable {
     init(data: [Any])
     
     func hasNextElement() -> Bool
-    func getNextElement() -> Any?
+    func getNextElement() -> MetaComuteUnitDataSourceSet?
     
     func hashNextResult() -> Bool
-    func getNextResult() -> Any?
+    func getNextResult() -> MetaComuteUnitDataSourceSet?
     
     func storeNextResult(_ result: Any)
     
 }
 
-enum MetaComputeUnitDataSourceDataSet {
+enum MetaComputeUnitDataSourceDataSetType {
     case Result
     case Data
 }
 
+struct MetaComuteUnitDataSourceSet {
+    let id: Int
+    let value: Any
+}
+
 class MetaComputeDataSource: MetaComputeDataSourceable, Equatable {
-    var data: [Any]       = [Any]()
-    var results: [Any]    = [Any]()
+    
+    var data: [MetaComuteUnitDataSourceSet] = [MetaComuteUnitDataSourceSet]()
+    var results: [MetaComuteUnitDataSourceSet] = [MetaComuteUnitDataSourceSet]()
     
     var dataSemaphore: DispatchSemaphore
     var resultSemaphore: DispatchSemaphore
@@ -44,20 +50,22 @@ class MetaComputeDataSource: MetaComputeDataSourceable, Equatable {
     init() {
         dataSemaphore   = DispatchSemaphore(value: 1)
         resultSemaphore = DispatchSemaphore(value: 1)
-        data            = [Any]()
-        results         = [Any]()
+        data            = [MetaComuteUnitDataSourceSet]()
+        results         = [MetaComuteUnitDataSourceSet]()
     }
     
     required convenience init(data: [Any]) {
         self.init()
-        self.data = data
+        self.data = (0..<data.count).map {
+            MetaComuteUnitDataSourceSet(id: $0, value: data[$0])
+        }
     }
     
-    private func getElementFrom(dataSet: MetaComputeUnitDataSourceDataSet,
-                                semaphore: DispatchSemaphore) -> Any? {
+    private func getElementFrom(dataSet: MetaComputeUnitDataSourceDataSetType,
+                                semaphore: DispatchSemaphore) -> MetaComuteUnitDataSourceSet? {
         guard !data.isEmpty else { return nil }
         semaphore.wait()
-        let result: Any?
+        let result: MetaComuteUnitDataSourceSet?
         switch dataSet {
         case .Result:
             result = results.removeFirst()
@@ -74,23 +82,39 @@ class MetaComputeDataSource: MetaComputeDataSourceable, Equatable {
         return data.first != nil
     }
     
-    func getNextElement() -> Any? {
+    func getNextElement() -> MetaComuteUnitDataSourceSet? {
         return getElementFrom(dataSet: .Data, semaphore: dataSemaphore)
     }
     
+    func getSetOfElements(size: Int) -> [MetaComuteUnitDataSourceSet] {
+        dataSemaphore.wait()
+        let set = data[0..<size]
+        data.removeFirst(size)
+        dataSemaphore.signal()
+        return Array(set)
+    }
     
     func hashNextResult() -> Bool {
         return results.first != nil
     }
     
-    func getNextResult() -> Any? {
+    func appendSetofResults(_ set:[Any]) {
+        let dataSourceSet = (results.count..<results.count+set.count).map {
+            MetaComuteUnitDataSourceSet(id: $0, value: set[results.count + $0])
+        }
+        resultSemaphore.wait()
+        results.append(contentsOf: dataSourceSet)
+        resultSemaphore.signal()
+    }
+    
+    func getNextResult() -> MetaComuteUnitDataSourceSet? {
         return getElementFrom(dataSet: .Result, semaphore: resultSemaphore)
     }
     
     
     func storeNextResult(_ result: Any) {
         resultSemaphore.wait()
-        results.append(result)
+        results.append(MetaComuteUnitDataSourceSet(id: results.count + 1, value: result))
         resultSemaphore.signal()
     }
     

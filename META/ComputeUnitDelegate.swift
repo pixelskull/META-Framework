@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol MetaComputeUnitDelegate {
+protocol ComputeUnitDelegate {
     
     func computeUnitUpdatedResults()
     

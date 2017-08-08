@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		5039DFE81E8E9C4800DE21E9 /* MetaComputeUnitScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5039DFE71E8E9C4800DE21E9 /* MetaComputeUnitScheduler.swift */; };
-		504AEE621E8E7ED900D644EB /* MetaComputeUnitDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504AEE611E8E7ED900D644EB /* MetaComputeUnitDelegate.swift */; };
+		504AEE621E8E7ED900D644EB /* ComputeUnitDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504AEE611E8E7ED900D644EB /* ComputeUnitDelegate.swift */; };
 		504AEE641E8E7F0100D644EB /* MetaComputeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504AEE631E8E7F0100D644EB /* MetaComputeDataSource.swift */; };
 		504E608A1E8D3B8000C4E3EF /* META.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 504E60801E8D3B8000C4E3EF /* META.framework */; };
 		504E60911E8D3B8000C4E3EF /* META.h in Headers */ = {isa = PBXBuildFile; fileRef = 504E60831E8D3B8000C4E3EF /* META.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		504E609B1E8D3BA400C4E3EF /* MetaComputeUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504E609A1E8D3BA400C4E3EF /* MetaComputeUnit.swift */; };
+		504E609B1E8D3BA400C4E3EF /* ComputeUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504E609A1E8D3BA400C4E3EF /* ComputeUnit.swift */; };
+		5051A1BA1F39CCC0008776B2 /* RoundRobinSchedulingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5051A1B91F39CCC0008776B2 /* RoundRobinSchedulingStrategy.swift */; };
 		5054C8871E9BF13F00314D6D /* iOSSystemServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5054C8861E9BF13F00314D6D /* iOSSystemServices.framework */; };
 		5054C88B1E9BF3C600314D6D /* NSTimer+Clusure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5054C88A1E9BF3C600314D6D /* NSTimer+Clusure.swift */; };
 		5054C88D1E9CD50900314D6D /* MetaComputeSchedulerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5054C88C1E9CD50900314D6D /* MetaComputeSchedulerTest.swift */; };
@@ -43,14 +44,15 @@
 
 /* Begin PBXFileReference section */
 		5039DFE71E8E9C4800DE21E9 /* MetaComputeUnitScheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaComputeUnitScheduler.swift; sourceTree = "<group>"; };
-		504AEE611E8E7ED900D644EB /* MetaComputeUnitDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaComputeUnitDelegate.swift; sourceTree = "<group>"; };
+		504AEE611E8E7ED900D644EB /* ComputeUnitDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComputeUnitDelegate.swift; sourceTree = "<group>"; };
 		504AEE631E8E7F0100D644EB /* MetaComputeDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaComputeDataSource.swift; sourceTree = "<group>"; };
 		504E60801E8D3B8000C4E3EF /* META.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = META.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		504E60831E8D3B8000C4E3EF /* META.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = META.h; sourceTree = "<group>"; };
 		504E60841E8D3B8000C4E3EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		504E60891E8D3B8000C4E3EF /* METATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = METATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		504E60901E8D3B8000C4E3EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		504E609A1E8D3BA400C4E3EF /* MetaComputeUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaComputeUnit.swift; sourceTree = "<group>"; };
+		504E609A1E8D3BA400C4E3EF /* ComputeUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComputeUnit.swift; sourceTree = "<group>"; };
+		5051A1B91F39CCC0008776B2 /* RoundRobinSchedulingStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundRobinSchedulingStrategy.swift; sourceTree = "<group>"; };
 		5054C8861E9BF13F00314D6D /* iOSSystemServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iOSSystemServices.framework; path = Carthage/Build/iOS/iOSSystemServices.framework; sourceTree = "<group>"; };
 		5054C88A1E9BF3C600314D6D /* NSTimer+Clusure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTimer+Clusure.swift"; sourceTree = "<group>"; };
 		5054C88C1E9CD50900314D6D /* MetaComputeSchedulerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaComputeSchedulerTest.swift; sourceTree = "<group>"; };
@@ -164,8 +166,8 @@
 				5076A36D1EDE061B00B1A5F6 /* Observer+Notifier */,
 				508FB0981EC1C57F0014E5E3 /* Scheduling Optimization Strategies */,
 				5059DFEA1E9F93DD00C6ABA3 /* Scheduling Strategies */,
-				504E609A1E8D3BA400C4E3EF /* MetaComputeUnit.swift */,
-				504AEE611E8E7ED900D644EB /* MetaComputeUnitDelegate.swift */,
+				504E609A1E8D3BA400C4E3EF /* ComputeUnit.swift */,
+				504AEE611E8E7ED900D644EB /* ComputeUnitDelegate.swift */,
 				504AEE631E8E7F0100D644EB /* MetaComputeDataSource.swift */,
 				5039DFE71E8E9C4800DE21E9 /* MetaComputeUnitScheduler.swift */,
 			);
@@ -177,6 +179,7 @@
 			children = (
 				508FB0941EBA0F0D0014E5E3 /* SchedulingStrategy.swift */,
 				508FB0961EBA0F390014E5E3 /* AdaptiveSchedulingStrategy.swift */,
+				5051A1B91F39CCC0008776B2 /* RoundRobinSchedulingStrategy.swift */,
 			);
 			name = "Scheduling Strategies";
 			sourceTree = "<group>";
@@ -342,11 +345,12 @@
 				508FB0951EBA0F0D0014E5E3 /* SchedulingStrategy.swift in Sources */,
 				5054C88B1E9BF3C600314D6D /* NSTimer+Clusure.swift in Sources */,
 				5076A36F1EDE063000B1A5F6 /* LatencyNotifier.swift in Sources */,
-				504E609B1E8D3BA400C4E3EF /* MetaComputeUnit.swift in Sources */,
+				5051A1BA1F39CCC0008776B2 /* RoundRobinSchedulingStrategy.swift in Sources */,
+				504E609B1E8D3BA400C4E3EF /* ComputeUnit.swift in Sources */,
 				508FB09A1EC1C5930014E5E3 /* SchedulingOptimizationStrategy.swift in Sources */,
 				508FB09C1EC1C5F90014E5E3 /* LatencyEffizientOptimizer.swift in Sources */,
 				504AEE641E8E7F0100D644EB /* MetaComputeDataSource.swift in Sources */,
-				504AEE621E8E7ED900D644EB /* MetaComputeUnitDelegate.swift in Sources */,
+				504AEE621E8E7ED900D644EB /* ComputeUnitDelegate.swift in Sources */,
 				508FB0971EBA0F390014E5E3 /* AdaptiveSchedulingStrategy.swift in Sources */,
 				5059DFEE1E9FA8CB00C6ABA3 /* Constants.swift in Sources */,
 			);
@@ -507,7 +511,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -532,7 +536,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = de.pixelskull.META;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -546,7 +550,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.pixelskull.METATests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -560,7 +564,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.pixelskull.METATests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
