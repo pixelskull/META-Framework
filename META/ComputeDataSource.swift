@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol MetaComputeDataSourceable {
+protocol ComputeDataSourceable {
     
     var data:[MetaComuteUnitDataSourceSet] { get set }
     var results:[MetaComuteUnitDataSourceSet] { get set }
@@ -39,7 +39,7 @@ struct MetaComuteUnitDataSourceSet {
     let value: Any
 }
 
-class MetaComputeDataSource: MetaComputeDataSourceable, Equatable {
+class MetaComputeDataSource: ComputeDataSourceable, Equatable {
     
     var data: [MetaComuteUnitDataSourceSet] = [MetaComuteUnitDataSourceSet]()
     var results: [MetaComuteUnitDataSourceSet] = [MetaComuteUnitDataSourceSet]()

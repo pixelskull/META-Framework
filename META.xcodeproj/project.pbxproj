@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5039DFE81E8E9C4800DE21E9 /* MetaComputeUnitScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5039DFE71E8E9C4800DE21E9 /* MetaComputeUnitScheduler.swift */; };
+		5039DFE81E8E9C4800DE21E9 /* ComputeUnitScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5039DFE71E8E9C4800DE21E9 /* ComputeUnitScheduler.swift */; };
 		504AEE621E8E7ED900D644EB /* ComputeUnitDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504AEE611E8E7ED900D644EB /* ComputeUnitDelegate.swift */; };
-		504AEE641E8E7F0100D644EB /* MetaComputeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504AEE631E8E7F0100D644EB /* MetaComputeDataSource.swift */; };
+		504AEE641E8E7F0100D644EB /* ComputeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504AEE631E8E7F0100D644EB /* ComputeDataSource.swift */; };
 		504E608A1E8D3B8000C4E3EF /* META.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 504E60801E8D3B8000C4E3EF /* META.framework */; };
 		504E60911E8D3B8000C4E3EF /* META.h in Headers */ = {isa = PBXBuildFile; fileRef = 504E60831E8D3B8000C4E3EF /* META.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		504E609B1E8D3BA400C4E3EF /* ComputeUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504E609A1E8D3BA400C4E3EF /* ComputeUnit.swift */; };
@@ -43,9 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5039DFE71E8E9C4800DE21E9 /* MetaComputeUnitScheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaComputeUnitScheduler.swift; sourceTree = "<group>"; };
+		5039DFE71E8E9C4800DE21E9 /* ComputeUnitScheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComputeUnitScheduler.swift; sourceTree = "<group>"; };
 		504AEE611E8E7ED900D644EB /* ComputeUnitDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComputeUnitDelegate.swift; sourceTree = "<group>"; };
-		504AEE631E8E7F0100D644EB /* MetaComputeDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaComputeDataSource.swift; sourceTree = "<group>"; };
+		504AEE631E8E7F0100D644EB /* ComputeDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComputeDataSource.swift; sourceTree = "<group>"; };
 		504E60801E8D3B8000C4E3EF /* META.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = META.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		504E60831E8D3B8000C4E3EF /* META.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = META.h; sourceTree = "<group>"; };
 		504E60841E8D3B8000C4E3EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -168,8 +168,8 @@
 				5059DFEA1E9F93DD00C6ABA3 /* Scheduling Strategies */,
 				504E609A1E8D3BA400C4E3EF /* ComputeUnit.swift */,
 				504AEE611E8E7ED900D644EB /* ComputeUnitDelegate.swift */,
-				504AEE631E8E7F0100D644EB /* MetaComputeDataSource.swift */,
-				5039DFE71E8E9C4800DE21E9 /* MetaComputeUnitScheduler.swift */,
+				504AEE631E8E7F0100D644EB /* ComputeDataSource.swift */,
+				5039DFE71E8E9C4800DE21E9 /* ComputeUnitScheduler.swift */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -339,7 +339,7 @@
 			files = (
 				5076A3751EDEDD9F00B1A5F6 /* CPUUsageNotifier.swift in Sources */,
 				5076A3711EDE065700B1A5F6 /* Observable.swift in Sources */,
-				5039DFE81E8E9C4800DE21E9 /* MetaComputeUnitScheduler.swift in Sources */,
+				5039DFE81E8E9C4800DE21E9 /* ComputeUnitScheduler.swift in Sources */,
 				5076A3731EDEA2D000B1A5F6 /* BatteryLevelNotifier.swift in Sources */,
 				5059DFE61E9E4FC400C6ABA3 /* NetworkLatencyService.swift in Sources */,
 				508FB0951EBA0F0D0014E5E3 /* SchedulingStrategy.swift in Sources */,
@@ -349,7 +349,7 @@
 				504E609B1E8D3BA400C4E3EF /* ComputeUnit.swift in Sources */,
 				508FB09A1EC1C5930014E5E3 /* SchedulingOptimizationStrategy.swift in Sources */,
 				508FB09C1EC1C5F90014E5E3 /* LatencyEffizientOptimizer.swift in Sources */,
-				504AEE641E8E7F0100D644EB /* MetaComputeDataSource.swift in Sources */,
+				504AEE641E8E7F0100D644EB /* ComputeDataSource.swift in Sources */,
 				504AEE621E8E7ED900D644EB /* ComputeUnitDelegate.swift in Sources */,
 				508FB0971EBA0F390014E5E3 /* AdaptiveSchedulingStrategy.swift in Sources */,
 				5059DFEE1E9FA8CB00C6ABA3 /* Constants.swift in Sources */,

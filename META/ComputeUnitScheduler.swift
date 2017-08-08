@@ -34,7 +34,7 @@ protocol MetaComputeUnitSchedulable {
     func start()
 }
 
-class MetaComputeScheduler: MetaComputeUnitSchedulable {
+class ComputeScheduler: MetaComputeUnitSchedulable {
 
     
     // MARK: Properties
