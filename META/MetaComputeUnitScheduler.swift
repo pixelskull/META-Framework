@@ -40,9 +40,9 @@ class MetaComputeScheduler: MetaComputeUnitSchedulable {
     // MARK: Properties
     
     // setting up observer with notifier
-    let cpuNotifier = CPUUsageNotifier()
-    let latencyNotifier = LatencyNotifier()
-    let batteryNotifier = BatterieLevelNotifier()
+//    let cpuNotifier = CPUUsageNotifier()
+//    let latencyNotifier = LatencyNotifier()
+//    let batteryNotifier = BatterieLevelNotifier()
     
     var backendUrl: URL?
     

@@ -7,14 +7,14 @@
 //
 
 import Foundation
-import Alamofire
-
-class NetworkLatencyService {
-    class func getLatency(to domain:String, withHandler handler: @escaping (TimeInterval) -> Void) {
-        Alamofire.request(domain).response { response in
-            print("latency: \(response.timeline.latency)")
-            handler(response.timeline.latency)
-        }
-    }
-}
+//import Alamofire
+//
+//class NetworkLatencyService {
+//    class func getLatency(to domain:String, withHandler handler: @escaping (TimeInterval) -> Void) {
+//        Alamofire.request(domain).response { response in
+//            print("latency: \(response.timeline.latency)")
+//            handler(response.timeline.latency)
+//        }
+//    }
+//}
 
