@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// protocol for observable pattern implementation
 protocol Observable {
     
     func willChange(propertyName: String, newPropertyValue value: Any?)
@@ -17,7 +18,7 @@ protocol Observable {
 
 /// Default implementation for using Observable
 class DefaultObserver: Observable {
-    
+    /// updates subscribers with information that changes will appear
     func willChange(propertyName: String, newPropertyValue value: Any?) {
         if value != nil {
             let notificationName = NSNotification.Name(rawValue: propertyName)
@@ -25,6 +26,7 @@ class DefaultObserver: Observable {
         }
     }
     
+    /// updates subscribers with information that changes did appear
     func didChange(propertyName: String, oldPropertyValue value: Any?) {
         if value != nil {
             let notificationName = NSNotification.Name(rawValue: propertyName)

@@ -8,10 +8,11 @@
 
 import Foundation
 
+/// protocol for newly implemented optimizations (based on AdaptiveSchedulingStrategy)
 protocol SchedulingOptimizationStrategy {
-    
+    /// function for the optimization step
     func optimize()
-    
+    /// get the in **optimize()** computed values
     func getOptimizedValues() -> (Double, Double)
     
 }

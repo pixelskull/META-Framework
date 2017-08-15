@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// struct for saving the global default parameters
 struct Constants {
     static let cpuTimerInterval = 0.1
     static let energyTimerInterval = 0.5

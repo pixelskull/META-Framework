@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ComputeScheduler Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/ComputeScheduler" class="dashAnchor"></a>
+    <a title="ComputeScheduler Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (77% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        ComputeScheduler Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/ComputeScheduler.html">ComputeScheduler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ComputeUnitTest.html">ComputeUnitTest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DefaultObserver.html">DefaultObserver</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LatencyEffizientOptimizer.html">LatencyEffizientOptimizer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MetaComputeDataSource.html">MetaComputeDataSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RoundRobinSchedulingStrategy.html">RoundRobinSchedulingStrategy</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/MetaComputeUnitDataSourceDataSetType.html">MetaComputeUnitDataSourceDataSetType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/OptimizingParameter.html">OptimizingParameter</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Timer.html">Timer</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/ComputeDataSourceable.html">ComputeDataSourceable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ComputeUnit.html">ComputeUnit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ComputeUnitDelegate.html">ComputeUnitDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MetaComputeUnitSchedulable.html">MetaComputeUnitSchedulable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Observable.html">Observable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SchedulingOptimizationStrategy.html">SchedulingOptimizationStrategy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SchedulingStrategy.html">SchedulingStrategy</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/AdaptiveSchedulingStrategy.html">AdaptiveSchedulingStrategy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Constants.html">Constants</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MetaComuteUnitDataSourceSet.html">MetaComuteUnitDataSourceSet</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SchedulingValue.html">SchedulingValue</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Typealiases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:4META13BatterieLevela">BatterieLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:4META8CpuUsagea">CpuUsage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:4META16EnergyConsumtiona">EnergyConsumtion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:4META7Latencya">Latency</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>ComputeScheduler</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">ComputeScheduler</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MetaComputeUnitSchedulable.html">MetaComputeUnitSchedulable</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>Default implementation for the <strong>MetaComputeUnitSchedulable</strong> protocol</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Properties"></a>
+                <a name="//apple_ref/swift/Section/Properties" class="dashAnchor"></a>
+                <a href="#/Properties">
+                  <h3 class="section-name">Properties</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4META26MetaComputeUnitSchedulableP10backendUrl10Foundation3URLVSgv"></a>
+                    <a name="//apple_ref/swift/Property/backendUrl" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4META26MetaComputeUnitSchedulableP10backendUrl10Foundation3URLVSgv">backendUrl</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">backendUrl</span><span class="p">:</span> <span class="kt">URL</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4META26MetaComputeUnitSchedulableP07computeD0AA0cD0_pv"></a>
+                    <a name="//apple_ref/swift/Property/computeUnit" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4META26MetaComputeUnitSchedulableP07computeD0AA0cD0_pv">computeUnit</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">computeUnit</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ComputeUnit.html">ComputeUnit</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4META26MetaComputeUnitSchedulableP10dataSourceAA0bc4DataG0Cv"></a>
+                    <a name="//apple_ref/swift/Property/dataSource" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4META26MetaComputeUnitSchedulableP10dataSourceAA0bc4DataG0Cv">dataSource</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">dataSource</span><span class="p">:</span> <span class="kt"><a href="../Classes/MetaComputeDataSource.html">MetaComputeDataSource</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4META16ComputeSchedulerC9schedulerSQyAA18SchedulingStrategy_pGv"></a>
+                    <a name="//apple_ref/swift/Property/scheduler" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4META16ComputeSchedulerC9schedulerSQyAA18SchedulingStrategy_pGv">scheduler</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">ComputeScheduler</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MetaComputeUnitSchedulable.html">MetaComputeUnitSchedulable</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Initializer"></a>
+                <a name="//apple_ref/swift/Section/Initializer" class="dashAnchor"></a>
+                <a href="#/Initializer">
+                  <h3 class="section-name">Initializer</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4META26MetaComputeUnitSchedulablePxAA0cD0_p4unit_AA0bC10DataSourceC04dataH0SS9serverURLtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(unit:dataSource:serverURL:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4META26MetaComputeUnitSchedulablePxAA0cD0_p4unit_AA0bC10DataSourceC04dataH0SS9serverURLtcfc">init(unit:dataSource:serverURL:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">required</span> <span class="nf">init</span><span class="p">(</span><span class="nv">unit</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ComputeUnit.html">ComputeUnit</a></span><span class="p">,</span>
+                  <span class="nv">dataSource</span><span class="p">:</span> <span class="kt"><a href="../Classes/MetaComputeDataSource.html">MetaComputeDataSource</a></span><span class="p">,</span>
+                  <span class="nv">serverURL</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"localhost"</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Interfaced%20functions"></a>
+                <a name="//apple_ref/swift/Section/Interfaced functions" class="dashAnchor"></a>
+                <a href="#/Interfaced%20functions">
+                  <h3 class="section-name">Interfaced functions</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4META16ComputeSchedulerC5startyyF"></a>
+                    <a name="//apple_ref/swift/Method/start()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4META16ComputeSchedulerC5startyyF">start()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>lets you start the computation with distribution and management
+starts with local/remote computation factor 0.5</p>
+
+<p><strong>requires configurated DataSource and ComputeUnit</strong></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">start</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4META16ComputeSchedulerC4stopyyF"></a>
+                    <a name="//apple_ref/swift/Method/stop()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4META16ComputeSchedulerC4stopyyF">stop()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">ComputeScheduler</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MetaComputeUnitSchedulable.html">MetaComputeUnitSchedulable</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2017-08-15)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

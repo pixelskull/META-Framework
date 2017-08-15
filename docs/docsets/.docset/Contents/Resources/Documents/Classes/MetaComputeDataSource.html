@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MetaComputeDataSource Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/MetaComputeDataSource" class="dashAnchor"></a>
+    <a title="MetaComputeDataSource Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (77% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        MetaComputeDataSource Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/ComputeScheduler.html">ComputeScheduler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ComputeUnitTest.html">ComputeUnitTest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DefaultObserver.html">DefaultObserver</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LatencyEffizientOptimizer.html">LatencyEffizientOptimizer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MetaComputeDataSource.html">MetaComputeDataSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RoundRobinSchedulingStrategy.html">RoundRobinSchedulingStrategy</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/MetaComputeUnitDataSourceDataSetType.html">MetaComputeUnitDataSourceDataSetType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/OptimizingParameter.html">OptimizingParameter</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Timer.html">Timer</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/ComputeDataSourceable.html">ComputeDataSourceable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ComputeUnit.html">ComputeUnit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ComputeUnitDelegate.html">ComputeUnitDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MetaComputeUnitSchedulable.html">MetaComputeUnitSchedulable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Observable.html">Observable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SchedulingOptimizationStrategy.html">SchedulingOptimizationStrategy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SchedulingStrategy.html">SchedulingStrategy</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/AdaptiveSchedulingStrategy.html">AdaptiveSchedulingStrategy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Constants.html">Constants</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MetaComuteUnitDataSourceSet.html">MetaComuteUnitDataSourceSet</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SchedulingValue.html">SchedulingValue</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Typealiases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:4META13BatterieLevela">BatterieLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:4META8CpuUsagea">CpuUsage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:4META16EnergyConsumtiona">EnergyConsumtion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:4META7Latencya">Latency</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>MetaComputeDataSource</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">MetaComputeDataSource</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ComputeDataSourceable.html">ComputeDataSourceable</a></span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
+
+                </div>
+              </div>
+            <p>Default implementation for <strong>ComputeDataSourceable</strong> protocol.</p>
+
+<p>Implements the getter and setter functions for <strong>data</strong> and
+<strong>results</strong> with semaphor safety.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4META21ComputeDataSourceableP4dataSayAA014MetaComuteUnitC9SourceSetVGv"></a>
+                    <a name="//apple_ref/swift/Property/data" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4META21ComputeDataSourceableP4dataSayAA014MetaComuteUnitC9SourceSetVGv">data</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">data</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/MetaComuteUnitDataSourceSet.html">MetaComuteUnitDataSourceSet</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kt"><a href="../Structs/MetaComuteUnitDataSourceSet.html">MetaComuteUnitDataSourceSet</a></span><span class="p">]()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4META21MetaComputeDataSourceC7resultsSayAA0b10ComuteUnitdE3SetVGv"></a>
+                    <a name="//apple_ref/swift/Property/results" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4META21MetaComputeDataSourceC7resultsSayAA0b10ComuteUnitdE3SetVGv">results</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">MetaComputeDataSource</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ComputeDataSourceable.html">ComputeDataSourceable</a></span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4META21ComputeDataSourceableP13dataSemaphoreSo08DispatchF0Cv"></a>
+                    <a name="//apple_ref/swift/Property/dataSemaphore" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4META21ComputeDataSourceableP13dataSemaphoreSo08DispatchF0Cv">dataSemaphore</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">dataSemaphore</span><span class="p">:</span> <span class="kt">DispatchSemaphore</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4META21ComputeDataSourceableP15resultSemaphoreSo08DispatchF0Cv"></a>
+                    <a name="//apple_ref/swift/Property/resultSemaphore" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4META21ComputeDataSourceableP15resultSemaphoreSo08DispatchF0Cv">resultSemaphore</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">resultSemaphore</span><span class="p">:</span> <span class="kt">DispatchSemaphore</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4META21MetaComputeDataSourceCACycfc"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4META21MetaComputeDataSourceCACycfc">init()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">MetaComputeDataSource</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ComputeDataSourceable.html">ComputeDataSourceable</a></span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4META21ComputeDataSourceablePxSayAA014MetaComuteUnitC9SourceSetVG4data_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(data:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4META21ComputeDataSourceablePxSayAA014MetaComuteUnitC9SourceSetVG4data_tcfc">init(data:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">required</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/MetaComuteUnitDataSourceSet.html">MetaComuteUnitDataSourceSet</a></span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4META21ComputeDataSourceableP14hasNextElementSbyF"></a>
+                    <a name="//apple_ref/swift/Method/hasNextElement()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4META21ComputeDataSourceableP14hasNextElementSbyF">hasNextElement()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">hasNextElement</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4META21ComputeDataSourceableP14getNextElementAA014MetaComuteUnitC9SourceSetVSgyF"></a>
+                    <a name="//apple_ref/swift/Method/getNextElement()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4META21ComputeDataSourceableP14getNextElementAA014MetaComuteUnitC9SourceSetVSgyF">getNextElement()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getNextElement</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/MetaComuteUnitDataSourceSet.html">MetaComuteUnitDataSourceSet</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4META21MetaComputeDataSourceC16getSetOfElementsSayAA0b10ComuteUnitdeG0VGSi4size_tF"></a>
+                    <a name="//apple_ref/swift/Method/getSetOfElements(size:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4META21MetaComputeDataSourceC16getSetOfElementsSayAA0b10ComuteUnitdeG0VGSi4size_tF">getSetOfElements(size:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Helper function for getting more than one data object at a time</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getSetOfElements</span><span class="p">(</span><span class="nv">size</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Structs/MetaComuteUnitDataSourceSet.html">MetaComuteUnitDataSourceSet</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>size</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>size of data set wanted</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4META21ComputeDataSourceableP14hashNextResultSbyF"></a>
+                    <a name="//apple_ref/swift/Method/hashNextResult()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4META21ComputeDataSourceableP14hashNextResultSbyF">hashNextResult()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">hashNextResult</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4META21MetaComputeDataSourceC18appendSetofResultsySayypGF"></a>
+                    <a name="//apple_ref/swift/Method/appendSetofResults(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4META21MetaComputeDataSourceC18appendSetofResultsySayypGF">appendSetofResults(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Helper function for setting more than one value at a time. Also
+wrapps the data into <strong>MetaComuteUnitDataSourceSet</strong></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">appendSetofResults</span><span class="p">(</span><span class="n">_</span> <span class="nv">set</span><span class="p">:[</span><span class="kt">Any</span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>set</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>data to store in results</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4META21ComputeDataSourceableP13getNextResultAA014MetaComuteUnitC9SourceSetVSgyF"></a>
+                    <a name="//apple_ref/swift/Method/getNextResult()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4META21ComputeDataSourceableP13getNextResultAA014MetaComuteUnitC9SourceSetVSgyF">getNextResult()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getNextResult</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/MetaComuteUnitDataSourceSet.html">MetaComuteUnitDataSourceSet</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4META21ComputeDataSourceableP15storeNextResultyypF"></a>
+                    <a name="//apple_ref/swift/Method/storeNextResult(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4META21ComputeDataSourceableP15storeNextResultyypF">storeNextResult(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">storeNextResult</span><span class="p">(</span><span class="n">_</span> <span class="nv">result</span><span class="p">:</span> <span class="kt">Any</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4META21MetaComputeDataSourceC2eeoiSbAC_ACtFZ"></a>
+                    <a name="//apple_ref/swift/Method/==(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4META21MetaComputeDataSourceC2eeoiSbAC_ACtFZ">==(_:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>function needed to conform to <strong>Equatable</strong> protocol</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="o">==</span><span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">MetaComputeDataSource</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">MetaComputeDataSource</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2017-08-15)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

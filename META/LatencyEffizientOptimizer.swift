@@ -77,6 +77,7 @@ class LatencyEffizientOptimizer: SchedulingOptimizationStrategy {
                                                object: nil)
     }
     
+    /// callback function for notificationCenter
     @objc private func handleLatencyMessage(_ notification: Notification) {
         guard let latency = notification.object as? [Latency] else { return }
         if !latencyMessured { latencyMessured = true }

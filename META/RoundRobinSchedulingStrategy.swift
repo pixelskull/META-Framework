@@ -8,13 +8,18 @@
 
 import Foundation
 
+/**
+ Basic scheduling implementation. This one tries to dirstribute
+ to mobile and remode evenly.
+ */
 class RoundRobinSchedulingStrategy: SchedulingStrategy {
-    
+    /// datasource with the data to compute
     let dataSource: MetaComputeDataSource!
+    /// ComputeUnit to compute the data out of **dataSource**
     let computeUnit: ComputeUnit!
-    
+    /// property for stroring host url
     let url: URL!
-    
+    /// private variable to stop scheduling
     private var operate: Bool = false
     
     init(withDataSource dataSource: MetaComputeDataSource,
@@ -26,8 +31,14 @@ class RoundRobinSchedulingStrategy: SchedulingStrategy {
         url = URL(string: backendURL)
     }
     
+    /**
+     Helper function to handle url requests and response. Creates an URLRequest and
+     sets an callback closure.
+     
+     - parameter url: host url to perform request
+     - parameter data: data to send to remote ComputeUnit
+     */
     private func postRequest(url: URL, data: Data) {
-        //TODO: add key
         let apiKey: String = ""
         let jsonDict = ["id": apiKey, "data": data] as [String : Any]
         do {

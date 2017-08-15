@@ -12,10 +12,10 @@ extension Timer {
     /**
      Creates and schedules a one-time `NSTimer` instance.
      
-     :param: delay The delay before execution.
-     :param: handler A closure to execute after `delay`.
+     - parameter delay: The delay before execution.
+     - parameter handler: A closure to execute after `delay`.
      
-     :returns: The newly-created `NSTimer` instance.
+     @returns The newly-created `NSTimer` instance.
      */
     class func schedule(delay: TimeInterval, handler: @escaping (Timer?) -> Void) -> Timer {
         let fireDate = delay + CFAbsoluteTimeGetCurrent()
@@ -27,10 +27,10 @@ extension Timer {
     /**
      Creates and schedules a repeating `NSTimer` instance.
      
-     :param: repeatInterval The interval between each execution of `handler`. Note that individual calls may be delayed; subsequent calls to `handler` will be based on the time the `NSTimer` was created.
-     :param: handler A closure to execute after `delay`.
+     - parameter repeatInterval: The interval between each execution of `handler`. Note that individual calls may be delayed; subsequent calls to `handler` will be based on the time the `NSTimer` was created.
+     - parameter handler: A closure to execute after `delay`.
      
-     :returns: The newly-created `NSTimer` instance.
+     @returns The newly-created `NSTimer` instance.
      */
     class func schedule(repeatInterval interval: TimeInterval, handler: @escaping (Timer?) -> Void) -> Timer {
         let fireDate = interval + CFAbsoluteTimeGetCurrent()
