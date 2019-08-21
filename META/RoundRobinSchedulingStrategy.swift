@@ -82,12 +82,18 @@ class RoundRobinSchedulingStrategy: SchedulingStrategy {
             let remoteData = dataSource.getSetOfElements(size: chunkSize)
             
             // send data to host
-            postRequest(url: url, data: NSKeyedArchiver.archivedData(withRootObject: remoteData))
-            // compute values locally
-            localData.forEach { (dataSourceSet) in
-                let resultValue = self.computeUnit.compute(data: dataSourceSet.value)
-                self.dataSource.storeNextResult(resultValue)
+            do {
+                postRequest(url: url, data: try NSKeyedArchiver.archivedData(withRootObject: remoteData, requiringSecureCoding: false))
+                // compute values locally
+                localData.forEach { (dataSourceSet) in
+                    let resultValue = self.computeUnit.compute(data: dataSourceSet.value)
+                    self.dataSource.storeNextResult(resultValue)
+                }
             }
+            catch {
+                print(error.localizedDescription)
+            }
+            
         }
     }
     

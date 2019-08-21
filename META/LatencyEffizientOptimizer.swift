@@ -15,18 +15,13 @@ class LatencyEffizientOptimizer: SchedulingOptimizationStrategy {
      remoteCompFactor** when set to normalize to
      1.0c
      */
-    private var localCompFactor:  Double {
-        set {
-            executeWithSemaphoreProtection {
-                self.localCompFactor = newValue
-                remoteCompFactor = 1.0 - newValue
-            }
-        }
-        get {
+    private var localCompFactor: Double {
+        willSet {
             semaphore.wait()
-            let value = self.localCompFactor
+        }
+        
+        didSet {
             semaphore.signal()
-            return value
         }
     }
     
@@ -36,17 +31,12 @@ class LatencyEffizientOptimizer: SchedulingOptimizationStrategy {
      1.0
     */
     private var remoteCompFactor: Double {
-        set {
-            executeWithSemaphoreProtection {
-                self.remoteCompFactor = newValue
-                localCompFactor = 1.0 - newValue
-            }
-        }
-        get {
+        willSet {
             semaphore.wait()
-            let value = self.remoteCompFactor
+        }
+        
+        didSet {
             semaphore.signal()
-            return value
         }
     }
     
@@ -63,11 +53,11 @@ class LatencyEffizientOptimizer: SchedulingOptimizationStrategy {
     
     init(localFactor: Double = 0.5, remoteFactor: Double = 0.5, stepSize: Double = 0.05) {
         self.stepSize = stepSize
-        guard remoteFactor == 0.5 else {
-            remoteCompFactor = remoteFactor
-            return
-        }
+        
         localCompFactor = localFactor
+        remoteCompFactor = remoteFactor
+        
+        currentLatencies = [Latency]()
         
         // adding observer to notification center for latenciesWillChange notification
         let notificationName = Notification.Name(rawValue: "latenciesWillChange")
@@ -84,18 +74,6 @@ class LatencyEffizientOptimizer: SchedulingOptimizationStrategy {
         currentLatencies = latency
     }
     
-    
-    /**
-     Takes an clusure and executes the closure with protection of a semaphore
-     **used for setting local and remote computation factor**
-     
-     - Parameter handler: Closure for manipulating remoteCompFactor or localCompFactor
-    */
-    private func executeWithSemaphoreProtection(_ handler: () -> Void) {
-        semaphore.wait()
-        handler()
-        semaphore.signal()
-    }
     
     /**
      Calculates the average latency over the given array of Latency values

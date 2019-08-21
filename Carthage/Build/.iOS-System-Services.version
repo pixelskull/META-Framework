@@ -1,19 +1,9 @@
 {
-  "commitish" : "43015b1d0fbb151641c445dc16fa2db6153cb37f",
+  "commitish" : "0b06ddab11d5a23d23384fc3b098992b19f7bb98",
   "iOS" : [
     {
-      "hash" : "f7dbbac28a1502e340c1fb80346ecb970b1dd1d3034518dfc1694b0e4b9d9ba7",
-      "name" : "iOSSystemServices"
+      "name" : "iOSSystemServices",
+      "hash" : "d0b148faf0d10ec860eccc955d40a104d4e3f06d4ff35d1dd1167e9becf3889e"
     }
-  ],
-  "xcodeVersion" : "Xcode 8.3.1\nBuild version 8E1000a",
-  "watchOS" : [
-
-  ],
-  "tvOS" : [
-
-  ],
-  "Mac" : [
-
   ]
 }

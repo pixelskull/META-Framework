@@ -15,7 +15,7 @@ class MetaComputeUnitDataSourceTest: XCTestCase {
     let testData2 = [9, 8, 7, 6]
     
     func initDataSourceWithTestData(_ data: [Any]) -> MetaComputeDataSource{
-        return MetaComputeDataSource(data: data)
+        return MetaComputeDataSource(data: data as! [MetaComuteUnitDataSourceSet])
     }
 
     func testDataSourceInit() {
@@ -27,7 +27,7 @@ class MetaComputeUnitDataSourceTest: XCTestCase {
     
     func testGetElement() {
         let dataSource = initDataSourceWithTestData(testData2)
-        XCTAssertEqual(dataSource.getNextElement() as! Int, testData2.first!)
+        XCTAssertEqual(dataSource.getNextElement()?.value as! Int, testData2.first!)
     }
     
     func testGetElementPerformance() {
@@ -42,7 +42,7 @@ class MetaComputeUnitDataSourceTest: XCTestCase {
     func testStoreResult() {
         let dataSource = initDataSourceWithTestData(testData2)
         dataSource.storeNextResult(testData1.first!)
-        XCTAssertEqual(dataSource.getNextResult() as! Int, testData1.first!)
+        XCTAssertEqual(dataSource.getNextResult()?.value as! Int, testData1.first!)
     }
     
     func testStoreResultPerformance() {
@@ -60,7 +60,8 @@ class MetaComputeUnitDataSourceTest: XCTestCase {
             (0...100000).forEach { _ in
                 DispatchQueue.main.async {
                     let element = dataSource.getNextElement()
-                    dataSource.storeNextResult(element ?? 1)
+                    let parameter = element?.value ?? 1
+                    dataSource.storeNextResult(parameter)
                 }
             }
         }

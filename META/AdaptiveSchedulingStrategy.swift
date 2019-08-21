@@ -39,21 +39,16 @@ struct AdaptiveSchedulingStrategy : SchedulingStrategy {
     }
     
     /// private storage for local compute factor
-    private var _localCompFaktor : Double
+//    private var _localCompFaktor : Double
     /// private getter and setter property for local compute factor
     private var localCompFaktor : Double{
-        get { return self.localCompFaktor }
-        set {
-            self.localCompFaktor    = newValue
-            self.remoteCompFaktor   = 1.0 - newValue
+        didSet {
+            self.remoteCompFaktor = 1.0 - self.localCompFaktor
         }
     }
     
     /// private getter and setter property for remote compute factor
-    private var remoteCompFaktor : Double {
-        get { return self.remoteCompFaktor }
-        set { self.remoteCompFaktor = newValue }
-    }
+    private var remoteCompFaktor : Double
     
     /// private propertie for used Strategy
     private var _optimizationAlgortihm: SchedulingOptimizationStrategy?
@@ -77,7 +72,8 @@ struct AdaptiveSchedulingStrategy : SchedulingStrategy {
          optimizedFor parameter: OptimizingParameter = .EnergyEfficency) {
         
         _computeUnit = computeUnit
-        _localCompFaktor = faktor
+        remoteCompFaktor = 1.0 // will get overwritten when local factor is set 
+        localCompFaktor = faktor
         dataSource = data
         
         /// set optimization strategy
